@@ -263,7 +263,7 @@ namespace GoogleCloudSamples
             var speech = SpeechClient.Create();
             var longOperation = speech.LongRunningRecognize(new RecognitionConfig()
             {
-                Encoding = RecognitionConfig.Types.AudioEncoding.Linear16,
+                Encoding = RecognitionConfig.Types.AudioEncoding.Flac,
                 SampleRateHertz = 16000,
                 LanguageCode = "en",
             }, RecognitionAudio.FromFile(filePath));
@@ -418,11 +418,12 @@ namespace GoogleCloudSamples
                         Config = new RecognitionConfig()
                         {
                             Encoding =
+                            //RecognitionConfig.Types.AudioEncoding.Linear16,
                             RecognitionConfig.Types.AudioEncoding.Linear16,
                             SampleRateHertz = 16000,
                             LanguageCode = "en",
                         },
-                        InterimResults = true,
+                        InterimResults = false,
                     }
                 });
             // Print responses as they arrive.
@@ -469,6 +470,8 @@ namespace GoogleCloudSamples
             lock (writeLock) writeMore = false;
             await streamingCall.WriteCompleteAsync();
             await printResponses;
+            Console.WriteLine("Press any key to quit...");
+            Console.ReadLine();
             return 0;
         }
         // [END speech_streaming_mic_recognize]

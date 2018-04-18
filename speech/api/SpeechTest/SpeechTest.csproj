@@ -4,16 +4,15 @@
     <TargetFramework>netcoreapp2.0</TargetFramework>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="Google.Cloud.Speech.V1" Version="1.0.0" />
+    <PackageReference Include="Google.Cloud.Speech.V1" Version="1.0.1" />
     <PackageReference Include="JUnitTestLogger" Version="0.6.0" />
-    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="15.3.0" />
-    <PackageReference Include="xunit" Version="2.3.0" />
-    <PackageReference Include="xunit.runner.visualstudio" Version="2.3.0" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="15.7.0" />
+    <PackageReference Include="xunit" Version="2.3.1" />
+    <PackageReference Include="xunit.runner.visualstudio" Version="2.3.1" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Recognize\Recognize.csproj" />
     <ProjectReference Include="..\QuickStart\QuickStart.csproj" />
-    <ProjectReference Include="..\..\..\testutil\testutil.csproj" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="..\resources\audio.flac">
@@ -32,6 +31,11 @@
       <Link>resources\quit.raw</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="testutil">
+      <HintPath>..\..\..\testutil\bin\Debug\netstandard2.0\testutil.dll</HintPath>
+    </Reference>
   </ItemGroup>
 
 </Project>
