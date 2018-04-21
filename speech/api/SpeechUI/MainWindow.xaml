@@ -5,9 +5,35 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SpeechUI"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
-    <Grid>
-        <ToggleButton Height="24" Width="72" Click="ButtonBase_OnClick" Margin="435,285,10,10">Speak</ToggleButton>
-        <TextBox HorizontalAlignment="Left" Height="259" Margin="10,10,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="497" Name="txtSpeech"/>
-    </Grid>
+        Title="Voice Dictation using Google Voice Cloud" Height="600" Width="800">
+	<Grid>
+		<Grid.RowDefinitions>
+			<RowDefinition Height="*"/>
+			<RowDefinition Height="48"/>
+		</Grid.RowDefinitions>
+		
+		<TextBox Name="txtSpeech" 
+		         Margin="5"
+				 Grid.Row="0"
+		         HorizontalAlignment="Stretch"
+				 FontSize="36"
+		         SpellCheck.IsEnabled="True"
+		         TextWrapping="Wrap" 
+		         VerticalAlignment="Stretch"/>
+
+		<TextBlock Name="timeElapsed"
+		           Grid.Row="1"
+				   Margin="10,0,0,0"
+		           Height="24" 
+		           Width="64"
+		           HorizontalAlignment="Left"/>
+
+		<ToggleButton Name="btnRecord" 
+					  Grid.Row="1"
+		              Height="24" 
+		              Width="88" 
+		              Click="ButtonBase_OnClick"
+					  Margin="0,0,10,0"
+		              HorizontalAlignment="Right">Start Recording</ToggleButton>
+	</Grid>
 </Window>
